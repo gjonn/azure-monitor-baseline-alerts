@@ -8119,7 +8119,7 @@
               "condition": "[not(parameters('AllResourcesSameRG'))]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2022-09-01",
-              "name": "[if(not(parameters('AllResourcesSameRG')), format('lnk_VMMAlrt_m_{0}', split(parameters('HostPoolInfo')[range(0, length(parameters('HostPoolInfo')))[copyIndex()]].colHostPoolName, '/')[8]), 'lnk_VMMAlrt_m_NA')]",
+              "name": "[if(not(parameters('AllResourcesSameRG')), format('lnk_VMA_m_{0}', split(parameters('HostPoolInfo')[range(0, length(parameters('HostPoolInfo')))[copyIndex()]].colHostPoolName, '/')[8]), 'lnk_VMA_m_NA')]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
@@ -8797,7 +8797,7 @@
               "condition": "[parameters('AllResourcesSameRG')]",
               "type": "Microsoft.Resources/deployments",
               "apiVersion": "2022-09-01",
-              "name": "[format('lnk_VMMAlrt_s_{0}', split(parameters('HostPools')[range(0, length(parameters('HostPools')))[copyIndex()]], '/')[8])]",
+              "name": "[format('lnk_VMA_s_{0}', split(parameters('HostPools')[range(0, length(parameters('HostPools')))[copyIndex()]], '/')[8])]",
               "properties": {
                 "expressionEvaluationOptions": {
                   "scope": "inner"
