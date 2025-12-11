@@ -40,7 +40,7 @@ module actionGroup '../carml/1.3.0/Microsoft.Insights/actionGroups/deploy.bicep'
 
 // If VM and Host Pools mapped - loop through each object in Host Pool Info which will have a single HP per VM RG
 module metricAlertsVms 'metricAlertsVms.bicep' = [for i in range(0, length(HostPoolInfo)): if(!AllResourcesSameRG) {
-  name: !AllResourcesSameRG ? 'lnk_VMMAlrt_m_${split(HostPoolInfo[i].colHostPoolName, '/')[8]}' : 'lnk_VMMtrcAlrts_m_NA'
+  name: !AllResourcesSameRG ? 'lnk_VMA_m_${split(HostPoolInfo[i].colHostPoolName, '/')[8]}' : 'lnk_VMMtrcAlrts_m_NA'
   params: {
     HostPoolName: !AllResourcesSameRG ? split(HostPoolInfo[i].colHostPoolName, '/')[8] : 'none'
     Environment: Environment
@@ -55,7 +55,7 @@ module metricAlertsVms 'metricAlertsVms.bicep' = [for i in range(0, length(HostP
 }]
 // If all resources in same RG, loop through Host Pools
 module metricAlertsVmsSingleRG 'metricAlertsVms.bicep' = [for i in range(0, length(HostPools)): if(AllResourcesSameRG) {
-  name: 'lnk_VMMAlrt_s_${split(HostPools[i], '/')[8]}'
+  name: 'lnk_VMA_s_${split(HostPools[i], '/')[8]}'
   params: {
     Environment: Environment
     HostPoolName: split(HostPools[i], '/')[8]
