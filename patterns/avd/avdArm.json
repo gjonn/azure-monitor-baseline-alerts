@@ -1606,7 +1606,7 @@
     "LogAlertsSvcHealth": [
       {
         "name": "[format('{0}-SerivceHealth-ServiceIssue', parameters('AlertNamePrefix'))]",
-        "displayName": "[format('{0}-SerivceHealth-Serivice Issue', parameters('AlertNamePrefix'))]",
+        "displayName": "[format('{0}-SerivceHealth-Service Issue', parameters('AlertNamePrefix'))]",
         "description": "[variables('AlertDescriptionHeader')]",
         "anyof": [
           {
