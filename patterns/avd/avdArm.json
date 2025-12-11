@@ -5120,7 +5120,7 @@
       "condition": "[not(parameters('AllResourcesSameRG'))]",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2022-09-01",
-      "name": "[format('c_DsktpRead_{0}', split(parameters('HostPoolInfo')[copyIndex()].colVMResGroup, '/')[4])]",
+      "name": "[format('c_DR_{0}', split(parameters('HostPoolInfo')[copyIndex()].colVMResGroup, '/')[4])]",
       "resourceGroup": "[split(parameters('HostPoolInfo')[copyIndex()].colVMResGroup, '/')[4]]",
       "properties": {
         "expressionEvaluationOptions": {
@@ -5706,7 +5706,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2022-09-01",
-      "name": "[format('c_DsktpRead_{0}', split(parameters('AVDResourceGroupId'), '/')[4])]",
+      "name": "[format('c_DR_{0}', split(parameters('AVDResourceGroupId'), '/')[4])]",
       "resourceGroup": "[split(parameters('AVDResourceGroupId'), '/')[4]]",
       "properties": {
         "expressionEvaluationOptions": {
